@@ -11,6 +11,13 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
+      - name: Install Next.js ESLint config
+        run: npm install --save-dev eslint-config-next
+      - name: Patch ESLint config to extend next (if needed)
+        run: |
+          if [ -f .eslintrc.json ]; then
+            npx json -I -f .eslintrc.json -e 'this.extends="next"'
+          fi
       - run: npm run build
   test: 
     needs: build
