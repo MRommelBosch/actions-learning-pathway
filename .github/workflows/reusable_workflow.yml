@@ -1,0 +1,10 @@
+on:
+  workflow_call:   # reusable workflow
+    inputs:        # input from caller
+      config-path: #input name
+        required: true
+        type: string
+
+    secrets:       # secret inputs from caller
+      envPAT:      # secret input name
+        required: true
