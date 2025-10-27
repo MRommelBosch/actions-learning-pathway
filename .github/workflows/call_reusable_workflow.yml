@@ -1,0 +1,9 @@
+on: label
+
+jobs:
+  call-workflow-passing-data:
+    uses: MRommelBosch/actions-learning-pathway/.github/workflows/reusable_workflow.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
